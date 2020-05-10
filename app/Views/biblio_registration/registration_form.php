@@ -68,14 +68,6 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="book_title">ชื่อหนังสือ</label>
-				<input type="text" class="form-control" id="book_title" placeholder="" value="" required>
-				<div class="invalid-feedback">
-					โปรดกรอกชื่อหนังสือ
-				</div>
-			</div>
-
-			<div class="mb-3">
 				<label for="bookTitle">เลขทะเบียน</label>
 				<input type="text" class="form-control" id="bookTitle" placeholder="" value="" required>
 				<div class="invalid-feedback">
@@ -84,57 +76,46 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="call_number_id">เลขเรียกหนังสือ</label>
-				<input type="text" class="form-control" id="call_number_id" placeholder="" value="" required>
-				<div class="invalid-feedback">
-					โปรดกรอกเลขเรียกหนังสือ
-				</div>
-			</div>
-
-			<div class="mb-3">
-				<label for="author_id">ผู้แต่ง</label>
-				<select class="custom-select d-block w-100" id="author_id" required>
-				  <option value="">เลือกผู้แต่ง...</option>
-				  <option>พบบุญ มหาชนะวงศ์</option>
+				<label for="book_title">ชื่อหนังสือ</label>
+				<select class="custom-select d-block w-100" id="book_title" required>
+				  <option value="">เลือกหนังสือ...</option>
+				  	<?php foreach ($biblios as $biblio_item): ?>
+					  <option><?= $biblio_item['title'] ?></option>
+					<?php endforeach; ?>
 				</select>
 				<div class="invalid-feedback">
-					โปรดเลือกผู้แต่ง
+					โปรดเลือกหนังสือ
 				</div>
 			</div>
 
 			<div class="mb-3">
-				<label for="publisher_id">สำนักพิมพ์</label>
-				<select class="custom-select d-block w-100" id="publisher_id" required>
-				  <option value="">เลือกสำนักพิมพ์...</option>
-				  <option>สำนักพิมพ์มหาชนะวงศ์</option>
-				</select>
-				<div class="invalid-feedback">
-					โปรดเลือกสำนักพิมพ์
-				</div>
+				<label for="call_number">เลขเรียกหนังสือ</label>
+				<input type="text" class="form-control" id="call_number" readonly>
 			</div>
 
 			<div class="mb-3">
-				<label for="edition">ครั้งที่พิมพ์</label>
-				<input type="number" class="form-control" id="edition" placeholder="" value="" required>
-				<div class="invalid-feedback">
-					โปรดกรอกเลขเรียกหนังสือ
-				</div>
+				<label for="author">ผู้แต่ง</label>
+				<input type="text" class="form-control" id="author" readonly>
 			</div>
 
 			<div class="mb-3">
-				<label for="year">ปีที่พิมพ์</label>
-				<input type="number" class="form-control" id="year" placeholder="" value="" required>
-				<div class="invalid-feedback">
-					โปรดกรอกเลขเรียกหนังสือ
-				</div>
+				<label for="publisher">สำนักพิมพ์</label>
+				<input type="text" class="form-control" id="publisher" readonly>
 			</div>
 
+			<div class="mb-3">
+				<label for="edition">พิมพ์ครั้งที่</label>
+				<input type="text" class="form-control" id="edition" readonly>
+			</div>
+
+			<div class="mb-3">
+				<label for="publish_year">ปีที่พิมพ์</label>
+				<input type="text" class="form-control" id="publish_year" readonly>
+			</div>
+			
 			<div class="mb-3">
 				<label for="price_thb">ราคา</label>
-				<input type="number" class="form-control" id="price_thb" placeholder="" value="" required>
-				<div class="invalid-feedback">
-					โปรดกรอกเลขเรียกหนังสือ
-				</div>
+				<input type="number" class="form-control" id="price_thb" placeholder="" value="">
 			</div>
 
 			<div class="mb-3">

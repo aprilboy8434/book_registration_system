@@ -32,8 +32,8 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('BookRegistration', 'BookRegistration::index');
-$routes->match(['get', 'post'], 'bookRegistration/registration', 'BookRegistration::registration_form');
+$routes->get('BiblioRegistration', 'BiblioRegistration::index');
+$routes->match(['get', 'post'], 'biblioRegistration/registration', 'biblioRegistration::registration_form');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

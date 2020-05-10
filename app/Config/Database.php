@@ -34,7 +34,7 @@ class Database extends \CodeIgniter\Database\Config
 		'hostname' => 'localhost',
 		'username' => 'bookregister',
 		'password' => 'pwdja1234',
-		'database' => 'book_registration',
+		'database' => 'libpkc_20200510',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

@@ -1,20 +1,21 @@
 <?php namespace App\Controllers;
-use App\Models\BookRegistrationLogModel;
+use App\Models\BiblioRegistrationLogModel;
+use App\Models\BiblioModel;
 use CodeIgniter\Controller;
 
-class BookRegistration extends Controller
+class BiblioRegistration extends Controller
 {
         public function index()
         {
-			$model = new BookRegistrationLogModel();
+			$biblioRegistrationLogmodel = new BiblioRegistrationLogModel();
 
 			$data = [
-					'books'  => $model->getBooks(),
+					'biblioRegistrationLogs'  => $biblioRegistrationLogmodel->getBiblioRegistrationLogs(),
 					'title' => 'รายการหนังสือลงทะเบียน',
 			];
 	
 			echo view('templates/header', $data);
-			echo view('book_registration/registration_list', $data);
+			echo view('biblio_registration/registration_list', $data);
 			echo view('templates/footer');
         }
 
@@ -40,22 +41,27 @@ class BookRegistration extends Controller
 	public function create()
 	{
 		helper('form');
-		$model = new BookRegistrationLogModel();
+		$biblioModel = new BiblioModel();
+
+		$data = [
+			'biblios'  => $biblioModel->getBiblios(),
+			'title' => 'รายการหนังสือลงทะเบียน',
+	];
 
 		if (! $this->validate([
 			'title' => 'required',
 		]))
 		{
 			echo view('templates/header', ['title' => 'ลงทะเบียนหนังสือใหม่']);
-			echo view('book_registration/registration_form');
+			echo view('biblio_registration/registration_form', $data);
 			echo view('templates/footer');
 
 		}
 		else
 		{
 			$model->save([
-				'title'  => $this->request->getVar('title'),
-				'note' => $this->request->getVar('note'),
+				// 'title'  => $this->request->getVar('title'),
+				// 'note' => $this->request->getVar('note'),
 				//'slug'  => url_title($this->request->getVar('title')),
 			]);
 			#echo view('book_registration/success');
